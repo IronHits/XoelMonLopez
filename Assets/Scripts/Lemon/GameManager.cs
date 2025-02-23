@@ -15,8 +15,12 @@ public class GameManager : MonoBehaviour
     private Image _wonImage;
     [SerializeField]
     private Image _deathImage;
-    [Header("Fade")]
 
+    [Header("Restart")]
+    [SerializeField]
+    private GameObject _restartButton;
+
+    [Header("Fade")]
     [SerializeField]
     private float _fadeDuration;
     [SerializeField]
@@ -85,7 +89,9 @@ public class GameManager : MonoBehaviour
         if(_timer > _fadeDuration + _displayImageDuration)
         {
             Debug.Log("He Ganado");
-            SceneManager.LoadScene(0);
+            _restartButton.SetActive(true);
+            
+           
             
         }
 
@@ -127,7 +133,10 @@ public class GameManager : MonoBehaviour
     }
 
 
-
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(0);
+    }
 
 
 }
